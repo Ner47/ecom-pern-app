@@ -1,15 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
-import { MainLayout } from "../layouts/MainLayout";
-import { HomePage } from "../../pages/HomePage/HomePage";
-import { LoginPage } from "../../pages/LoginPage/LoginPage";
-import { RegisterPage } from "../../pages/RegisterPage/RegisterPage";
-import { CartPage } from "../../pages/CartPage/CartPage";
-import { CheckoutPage } from "../../pages/CheckoutPage/CheckoutPage";
-import { OrdersPage } from "../../pages/OrdersPage/OrdersPage";
-import { OrderDetailsPage } from "../../pages/OrderDetailsPage/OrderDetailsPage";
-import { ProductDetailsPage } from "../../pages/ProductDetailsPage/ProductDetailsPage";
-import { AccountPage } from "../../pages/AccountPage/AccountPage";
-import { NotFoundPage } from "../../pages/NotFoundPage";
+import { MainLayout } from "@/app/layouts/MainLayout";
+import { HomePage } from "@/pages/HomePage/HomePage";
+import { LoginPage } from "@/pages/LoginPage/LoginPage";
+import { RegisterPage } from "@/pages/RegisterPage/RegisterPage";
+import { CartPage } from "@/pages/CartPage/CartPage";
+import { CheckoutPage } from "@/pages/CheckoutPage/CheckoutPage";
+import { OrdersPage } from "@/pages/OrdersPage/OrdersPage";
+import { OrderDetailsPage } from "@/pages/OrderDetailsPage/OrderDetailsPage";
+import { ProductDetailsPage } from "@/pages/ProductDetailsPage/ProductDetailsPage";
+import { AccountPage } from "@/pages/AccountPage/AccountPage";
+import { NotFoundPage } from "@/pages/NotFoundPage";
 
 export const router = createBrowserRouter([
   {
