@@ -1,0 +1,170 @@
+.text-field {
+  --field-bg: transparent;
+  --field-text: var(--default-text);
+  --field-label: var(--subdued-text);
+  --field-border: var(--border-dark);
+  --field-border-focus: var(--accent-two);
+  --field-border-error: #dc2626;
+  --field-placeholder: var(--subdued-text);
+
+  display: inline-grid;
+  gap: 6px;
+  color: var(--field-text);
+}
+
+/* Full width */
+
+.text-field--full {
+  width: 100%;
+}
+
+/* Main box */
+
+.text-field__box {
+  display: grid;
+  align-content: center;
+  gap: 6px;
+
+  width: 100%;
+  min-width: 280px;
+
+  background: var(--field-bg);
+  border: 2px solid var(--field-border);
+  padding: 14px 24px;
+
+  cursor: text;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.text-field:focus-within .text-field__box {
+  border-color: var(--field-border-focus);
+}
+
+/* Variants */
+
+.text-field--outline .text-field__box {
+  background: transparent;
+}
+
+.text-field--filled .text-field__box {
+  background: var(--background-two);
+}
+
+/* Sizes */
+
+.text-field--sm .text-field__box {
+  min-height: 56px;
+  padding: 10px 24px;
+}
+
+.text-field--md .text-field__box {
+  min-height: 72px;
+  padding: 14px 24px;
+}
+
+.text-field--lg .text-field__box {
+  min-height: 96px;
+  padding: 18px 24px;
+}
+
+/* Label */
+
+.text-field__label {
+  color: var(--field-label);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Input row */
+
+.text-field__control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+/* Input */
+
+.text-field__input {
+  width: 100%;
+  min-width: 0;
+
+  border: none;
+  outline: none;
+  background: transparent;
+
+  color: var(--field-text);
+  font: inherit;
+  font-size: 18px;
+  line-height: 1.4;
+
+  padding: 0;
+}
+
+.text-field__input::placeholder {
+  color: var(--field-placeholder);
+}
+
+/* Textarea */
+
+textarea.text-field__input {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Icons */
+
+.text-field__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--field-label);
+  flex-shrink: 0;
+}
+
+/* Error */
+
+.text-field--error .text-field__box {
+  border-color: var(--field-border-error);
+}
+
+.text-field__message {
+  color: var(--subdued-text);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.text-field__message--error {
+  color: var(--field-border-error);
+}
+
+/* Disabled */
+
+.text-field--disabled {
+  opacity: 0.6;
+}
+
+.text-field--disabled .text-field__box {
+  cursor: not-allowed;
+}
+
+.text-field--disabled .text-field__input {
+  cursor: not-allowed;
+}
+
+/* Dark page support if your UI is dark like the screenshot */
+
+body.theme-dark .text-field,
+.text-field--dark {
+  --field-bg: #000000;
+  --field-text: #ffffff;
+  --field-label: rgba(255, 255, 255, 0.6);
+  --field-border: #5c5f62;
+  --field-border-focus: #ffffff;
+  --field-placeholder: rgba(255, 255, 255, 0.35);
+}

@@ -5,7 +5,18 @@
 }
 
 :root {
-  --white: hsl(0, 0%, 100%);
+  --default-text: #121212;
+  --subdued-text: rgba(18, 18, 18, 0.75);
+
+  --white: #ffffff;
+
+  --background-two: #202223;
+  --border-dark: #7d7d7d;
+  --border-light: #d0d0d0;
+
+  --accent: #000000;
+  --accent-two: #3752b2;
+
   font-family:
     "Outfit",
     system-ui,

@@ -1,0 +1,82 @@
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  min-width: 111px;
+  height: 47px;
+  padding: 16px;
+  gap: 10px;
+
+  border: 1px solid transparent;
+  border-radius: 0;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+/* Color options */
+
+.button--accent {
+  --button-color: var(--accent);
+  --button-background-color: var(--white);
+}
+
+.button--accent-two {
+  --button-color: var(--accent-two);
+  --button-background-color: var(--white);
+}
+
+.button--background {
+  --button-color: var(--white);
+  --button-background-color: var(--accent);
+}
+
+.button--background-two {
+  --button-color: var(--white);
+  --button-background-color: var(--background-two);
+}
+
+/* Solid variant */
+
+.button--solid {
+  background-color: var(--button-background-color);
+  color: var(--button-color);
+}
+
+.button--solid:hover:not(:disabled) {
+  background-color: color-mix(
+    in srgb,
+    var(--button-background-color) 70%,
+    var(--button-color)
+  );
+}
+
+/* Outline variant */
+
+.button--outline {
+  border-color: var(--button-background-color);
+  background-color: transparent;
+  color: var(--button-background-color);
+}
+
+.button--outline:hover:not(:disabled) {
+  background-color: var(--button-background-color);
+  color: var(--button-color);
+  border-color: var(--button-background-color);
+}
+
+/* Disabled */
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
