@@ -6,6 +6,7 @@ export const storage = {
   },
 
   setToken(token) {
+    console.log(token);
     localStorage.setItem(TOKEN_KEY, token);
   },
 

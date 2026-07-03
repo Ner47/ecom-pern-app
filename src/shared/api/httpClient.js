@@ -1,5 +1,4 @@
 import { env } from "@/shared/config/env";
-import { storage } from "@/shared/lib/storage";
 
 function buildUrl(path) {
   if (path.startsWith("http")) {
@@ -10,16 +9,14 @@ function buildUrl(path) {
 }
 
 async function request(path, options = {}) {
-  const token = storage.getToken();
-
   const headers = {
     "Content-Type": "application/json",
-    ...(token ? { Authorization: `Bearer ${token}` } : {}),
     ...(options.headers || {}),
   };
 
   const config = {
     ...options,
+    credentials: "include",
     headers,
   };
 

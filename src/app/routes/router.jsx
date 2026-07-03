@@ -11,6 +11,8 @@ import { ProductDetailsPage } from "@/pages/ProductDetailsPage/ProductDetailsPag
 import { AccountPage } from "@/pages/AccountPage/AccountPage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
 
+import { PrivateRoute } from "@/features/auth/ui/PrivateRoute";
+
 export const router = createBrowserRouter([
   {
     element: <MainLayout />,
@@ -28,28 +30,48 @@ export const router = createBrowserRouter([
         element: <RegisterPage />,
       },
       {
-        path: "/cart",
-        element: <CartPage />,
-      },
-      {
-        path: "/checkout",
-        element: <CheckoutPage />,
-      },
-      {
-        path: "/orders",
-        element: <OrdersPage />,
-      },
-      {
-        path: "/orders/:orderId",
-        element: <OrderDetailsPage />,
-      },
-      {
         path: "/products/:productId",
         element: <ProductDetailsPage />,
       },
       {
+        path: "/cart",
+        element: (
+          <PrivateRoute>
+            <CartPage />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/checkout",
+        element: (
+          <PrivateRoute>
+            <CheckoutPage />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/orders",
+        element: (
+          <PrivateRoute>
+            <OrdersPage />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/orders/:orderId",
+        element: (
+          <PrivateRoute>
+            <OrderDetailsPage />
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "/account",
-        element: <AccountPage />,
+        element: (
+          <PrivateRoute>
+            <AccountPage />
+          </PrivateRoute>
+        ),
       },
     ],
   },
