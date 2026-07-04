@@ -11,7 +11,7 @@ import { ProductDetailsPage } from "@/pages/ProductDetailsPage/ProductDetailsPag
 import { AccountPage } from "@/pages/AccountPage/AccountPage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
 
-import { PrivateRoute } from "@/features/auth/ui/PrivateRoute";
+import { PrivateRoute } from "@/features/auth";
 
 export const router = createBrowserRouter([
   {
