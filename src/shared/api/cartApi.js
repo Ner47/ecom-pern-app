@@ -19,6 +19,6 @@ export const cartApi = {
   },
 
   removeCartItem(itemId) {
-    return httpClient.delete(`cart/items/${itemId}`);
+    return httpClient.delete(`/cart/items/${itemId}`);
   },
 };
