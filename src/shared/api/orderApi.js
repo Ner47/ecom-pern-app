@@ -8,4 +8,11 @@ export const orderApi = {
   getOrderById(orderId) {
     return httpClient.get(`/orders/${orderId}`);
   },
+
+  createOrder(cartId, paymentInfo) {
+    return httpClient.post("/cart/checkout", {
+      cartId,
+      paymentInfo,
+    });
+  },
 };
