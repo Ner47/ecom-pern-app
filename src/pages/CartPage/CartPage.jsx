@@ -11,7 +11,7 @@ import { useEffect } from "react";
 export function CartPage() {
   const dispatch = useDispatch();
   const cart = useSelector(selectCartItems) || [];
-  const total = useSelector(selectCartTotal) || [];
+  const total = useSelector(selectCartTotal) || 0;
 
   useEffect(() => {
     dispatch(fetchCart());
