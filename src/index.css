@@ -18,7 +18,7 @@
   --accent-two: #3752b2;
 
   font-family:
-    "Outfit",
+    "Lato",
     system-ui,
     -apple-system,
     Segoe UI,
@@ -29,5 +29,5 @@
 
 body {
   margin: 0;
-  background: var(--white);
+  background: var(--border-light);
 }

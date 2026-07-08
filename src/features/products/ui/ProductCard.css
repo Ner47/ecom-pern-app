@@ -1,0 +1,15 @@
+.product-card__image {
+  max-height: 272px;
+}
+
+.product-card a {
+  text-decoration: none;
+  color: var(--default-text);
+}
+
+.product-card h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 12px;
+}

@@ -1,22 +1,18 @@
-import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { Button } from "@/shared/ui/Button/Button";
-import { addCartItem } from "@/features/cart";
+import "./ProductCard.css";
 
 export function ProductCard({ product }) {
-  const dispatch = useDispatch();
-
   return (
     <article className="product-card">
       <Link to={`/products/${product.id}`}>
-        <img className="product-card__image" alt={product.name} />
+        <img
+          className="product-card__image"
+          alt={product.name}
+          src={`/src/shared/assets/${product.name}.png`}
+        />
         <h3>{product.name}</h3>
+        <span>${product.price}.00 CAD</span>
       </Link>
-      <p>{product.description}</p>
-      <strong>{product.price}</strong>
-      <Button onClick={() => dispatch(addCartItem({ productId: product.id }))}>
-        Add to cart
-      </Button>
     </article>
   );
 }
