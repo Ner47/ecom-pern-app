@@ -1,9 +1,12 @@
 import { useDispatch } from "react-redux";
 import { removeCartItem, updateCartItem } from "../model/thunks";
 import { Button } from "@/shared/ui/Button/Button";
+import { iconDelete } from "../../../shared/assets";
 
 export function CartItemCart({ item }) {
   const dispatch = useDispatch();
+
+  const lineTotal = (item.price ?? 0) * (item.qty ?? 1);
 
   if (!item) {
     return null;
@@ -33,13 +36,20 @@ export function CartItemCart({ item }) {
   }
 
   return (
-    <article className="cart-item-card">
-      <img className="cart-item-card__image" alt={item.name} />
+    <article className="cart-row">
+      <div className="cart-row__product">
+        <img
+          src={`/src/shared/assets/${item.name}.png`}
+          alt={item.name}
+          className="cart-row__image"
+        />
 
-      <div>
-        <h3>{item.name}</h3>
-        <p>${item.price}</p>
-        <div className="cart-item-card__actions">
+        <div className="cart-row__info">
+          <h3>{item.name}</h3>
+        </div>
+      </div>
+      <div className="cart-row__buttons">
+        <div className="cart-row__qty">
           <Button onClick={decrease} type="button">
             -
           </Button>
@@ -47,14 +57,20 @@ export function CartItemCart({ item }) {
           <Button onClick={increase} type="button">
             +
           </Button>
+        </div>
+
+        <div className="cart-row__delete">
           <Button
+            className="cart-row__delete"
             onClick={() => dispatch(removeCartItem(item.cartitemid))}
             type="button"
           >
-            Remove
+            <img src={iconDelete} />
           </Button>
         </div>
       </div>
+
+      <div className="cart_row__total">${lineTotal.toFixed(2)}<span> CAD</span></div>
     </article>
   );
 }

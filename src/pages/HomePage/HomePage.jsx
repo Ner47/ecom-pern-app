@@ -38,7 +38,7 @@ export function HomePage() {
         <div className="home-hero__title">
           <h1>Industrial design meets fashion</h1>
           <span>Atypical leather goods</span>
-          <a href="#products-grid">
+          <a href="#home-products">
             <Button type="button" variant="outline">
               Add to cart
             </Button>
@@ -46,7 +46,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="home-products" id="products-grid">
+      <section className="home-products" id="home-products">
         <div className="home-products__title">
           <h2>Obsessive Attention. Intelligent Effort.</h2>
           <span>
