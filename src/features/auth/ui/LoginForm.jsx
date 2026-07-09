@@ -5,6 +5,8 @@ import { TextField } from "@/shared/ui/TextField/TextField";
 import { Button } from "@/shared/ui/Button/Button";
 import { useState } from "react";
 
+import "./LoginForm.css";
+
 export function LoginForm() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -45,26 +47,26 @@ export function LoginForm() {
       {error && <p className="login-form__error">{error}</p>}
 
       <TextField
-        label="Email"
+        // label="Email"
         name="username"
         type="email"
         value={form.username}
         onChange={handleChange}
-        placeholder="you@example.com"
+        placeholder="Email"
         required
       />
 
       <TextField
-        label="Password"
+        // label="Password"
         name="password"
         type="password"
         value={form.password}
         onChange={handleChange}
-        placeholder="Your password"
+        placeholder="Password"
         required
       />
 
-      <Button type="submit" disable={isLoading.toString()}>
+      <Button color="background" type="submit" disable={isLoading.toString()}>
         {isLoading ? "Logging in..." : "Login"}
       </Button>
     </form>
