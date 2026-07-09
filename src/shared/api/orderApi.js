@@ -9,9 +9,8 @@ export const orderApi = {
     return httpClient.get(`/orders/${orderId}`);
   },
 
-  createOrder(cartId, paymentInfo) {
+  createOrder(paymentInfo) {
     return httpClient.post("/cart/checkout", {
-      cartId,
       paymentInfo,
     });
   },

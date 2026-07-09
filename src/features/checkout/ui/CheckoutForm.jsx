@@ -5,6 +5,7 @@ import { createOrder } from "@/features/orders";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import "./CheckoutForm.css";
 
 export function CheckoutForm() {
   const dispatch = useDispatch();
@@ -35,6 +36,8 @@ export function CheckoutForm() {
       }),
     );
 
+    console.log(result);
+
     if (createOrder.fulfilled.match(result)) {
       const order = result.payload;
       navigate(`/orders/${order.id}`);
@@ -44,40 +47,41 @@ export function CheckoutForm() {
   return (
     <form className="checkout-form" onSubmit={handleSubmit}>
       <h1>Checkout</h1>
-
       <TextField
-        label="Full Name"
         name="fullname"
         value={form.fullname}
         onChange={handleChange}
+        placeholder="Full Name"
         required
       />
 
       <TextField
-        label="Address"
         name="address"
         value={form.address}
         onChange={handleChange}
+        placeholder="Address"
         required
       />
 
       <TextField
-        label="City"
         name="city"
         value={form.city}
         onChange={handleChange}
+        placeholder="City"
         required
       />
 
       <TextField
-        label="Phone"
         name="phone"
         value={form.phone}
         onChange={handleChange}
+        placeholder="Phone"
         required
       />
 
-      <Button type="submit">Place Order</Button>
+      <Button type="submit" color="background">
+        Place Order
+      </Button>
     </form>
   );
 }

@@ -25,9 +25,9 @@ export const fetchOrdersById = createAsyncThunk(
 
 export const createOrder = createAsyncThunk(
   "orders/createOrder",
-  async (cartId, paymentInfo, { rejectWithValue }) => {
+  async (paymentInfo, { rejectWithValue }) => {
     try {
-      return await orderApi.createOrder(cartId, paymentInfo);
+      return await orderApi.createOrder(paymentInfo);
     } catch (error) {
       return rejectWithValue(error.message);
     }

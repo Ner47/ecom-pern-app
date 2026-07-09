@@ -1,5 +1,10 @@
 import "./CheckoutPage.css";
+import { CheckoutForm } from "@/features/checkout";
 
 export function CheckoutPage() {
-  return "Checkout";
+  return (
+    <main className="checkout">
+      <CheckoutForm />
+    </main>
+  );
 }
