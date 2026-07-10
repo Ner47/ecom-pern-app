@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import "./ProductDetailsPage.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
@@ -9,6 +9,8 @@ import { addCartItem } from "@/features/cart";
 export function ProductDetailsPage() {
   const { productId } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const product = useSelector(selectSelectedProduct);
   const [qty, setQty] = useState(1);
@@ -19,6 +21,25 @@ export function ProductDetailsPage() {
 
   if (!product) {
     return <main className="product">Loading product...</main>;
+  }
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    const result = await dispatch(
+      addCartItem({ productId: product.id, qty: qty }),
+    );
+    if (addCartItem.rejected.match(result)) {
+      if (result.payload === "Unauthorized") {
+        navigate("/login", {
+          replace: true,
+          state: { from: location },
+        });
+        return;
+      }
+
+      console.error(result.payload?.message || "Failed to add item to cart");
+    }
   }
 
   return (
@@ -62,9 +83,7 @@ export function ProductDetailsPage() {
             type="button"
             color="background"
             variant="outline"
-            onClick={() =>
-              dispatch(addCartItem({ productId: product.id, qty: qty }))
-            }
+            onClick={handleSubmit}
           >
             Add to cart
           </Button>

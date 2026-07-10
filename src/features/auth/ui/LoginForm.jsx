@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { selectAuthStatus, selectAuthError, login } from "@/features/auth";
 import { TextField } from "@/shared/ui/TextField/TextField";
 import { Button } from "@/shared/ui/Button/Button";
@@ -10,6 +10,7 @@ import "./LoginForm.css";
 export function LoginForm() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const status = useSelector(selectAuthStatus);
   const error = useSelector(selectAuthError);
@@ -20,6 +21,10 @@ export function LoginForm() {
   });
 
   const isLoading = status === "loading";
+
+  const from =
+    location.state?.from?.pathname + (location.state?.from?.search || "") ||
+    "/";
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -36,7 +41,7 @@ export function LoginForm() {
     const result = await dispatch(login(form));
 
     if (login.fulfilled.match(result)) {
-      navigate("/");
+      navigate(from, { replace: true });
     }
   }
 
