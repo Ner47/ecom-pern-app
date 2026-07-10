@@ -1,0 +1,21 @@
+.order-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  border: 1px solid var(--border-light);
+  padding: 12px;
+  margin-bottom: 15px;
+}
+
+.order-card h3 {
+  font-weight: 300;
+}
+
+.order-card span {
+  font-weight: 300;
+}
+
+.order-card__link {
+  color: var(--default-text);
+}

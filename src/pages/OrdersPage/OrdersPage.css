@@ -1,0 +1,8 @@
+.orders {
+  display: grid;
+  place-items: center;
+}
+
+.orders h1 {
+  font-weight: 400;
+}
