@@ -1,0 +1,33 @@
+.profile {
+  margin: 64px;
+  display: grid;
+}
+
+.profile-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  border: 2px solid var(--border-light);
+}
+
+.profile-card__avatar {
+  width: 150px;
+  margin-right: 20px;
+}
+
+.profile-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.profile-card__info p {
+  margin: 0;
+  font-size: 20px;
+}
+
+.profile-card__info a {
+  font-size: 25px;
+  color: var(--subdued-text);
+}
