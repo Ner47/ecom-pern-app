@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { selectAuthStatus, selectAuthError, login } from "@/features/auth";
 import { TextField } from "@/shared/ui/TextField/TextField";
 import { Button } from "@/shared/ui/Button/Button";
@@ -71,9 +71,23 @@ export function LoginForm() {
         required
       />
 
-      <Button color="background" type="submit" disable={isLoading.toString()}>
-        {isLoading ? "Logging in..." : "Login"}
-      </Button>
+      <div className="login-form__buttons">
+        <Button color="background" type="submit" disable={isLoading.toString()}>
+          {isLoading ? "Logging in..." : "Login"}
+        </Button>
+        or
+        <Link to="/register">
+          <Button
+            color="background"
+            variant="outline"
+            type="button"
+            onClick
+            disable={isLoading.toString()}
+          >
+            Register
+          </Button>
+        </Link>
+      </div>
     </form>
   );
 }

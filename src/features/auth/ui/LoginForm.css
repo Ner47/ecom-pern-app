@@ -10,3 +10,13 @@
 .login-form h1 {
   font-weight: 400;
 }
+
+.login-form__buttons {
+  display: grid;
+  text-align: center;
+  gap: 10px;
+}
+
+.login-form__buttons .button {
+  width: 280px;
+}
