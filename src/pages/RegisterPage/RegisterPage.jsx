@@ -81,8 +81,8 @@ export function RegisterPage() {
             Register
           </Button>
           or
-          <Link to="/register">
-            <Button color="background" type="submit">
+          <Link to="/login">
+            <Button color="background" type="button">
               Login
             </Button>
           </Link>
