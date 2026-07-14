@@ -1,0 +1,31 @@
+.not-found {
+  margin-top: 64px;
+  display: grid;
+  place-items: center;
+}
+
+.not-found__card {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.not-found h1 {
+  font-size: 30px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.not-found p {
+  font-size: 20px;
+  font-weight: 300;
+  margin: 0;
+}
+
+.not-found a {
+  font-size: 25px;
+  color: var(--subdued-text);
+  font-weight: 300;
+  align-self: flex-end;
+}
